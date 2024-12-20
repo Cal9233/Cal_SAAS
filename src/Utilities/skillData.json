@@ -1,0 +1,17 @@
+{
+    "group1": {
+      "title": "Continuous Support",
+      "summary": "I will advance your web-based software to keep it efficient and competitive on the market. Using well-established DevOps processes, I help roll out urgent updates within hours and release new, planned functional modules every other week.",
+      "icon": "/path-to-your-icon1.svg"
+    },
+    "group2": {
+      "title": "Back-end Development",
+      "summary": "I accurately implement the business logic of your web app on the back end. I rely on proven frameworks to ensure fast and quality coding, building well-structured APIs to integrate your web app with corporate or third-party systems.",
+      "icon": "/path-to-your-icon2.svg"
+    },
+    "group3": {
+      "title": "Frontend Design/Dev",
+      "summary": "As a web expert, I closely analyze the user audience to understand their needs and reflect these findings in UI design. After aligning on the look and feel with stakeholders, I bring it to life with smart front-end technologies.",
+      "icon": "/path-to-your-icon3.svg"
+    }
+  }
