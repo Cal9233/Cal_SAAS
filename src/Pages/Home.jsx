@@ -6,6 +6,7 @@ import {
   Box 
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import me from '../Assets/me.jpg';
 
 // Styled components
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -19,15 +20,24 @@ const StyledButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-const ImagePlaceholder = styled(Box)(({ theme }) => ({
+const ImageContainer = styled(Box)(({ theme }) => ({
   width: '100%',
-  height: '100%',
-  minHeight: '400px',
-  backgroundColor: theme.palette.grey[200],
+  height: '400px',
   borderRadius: theme.shape.borderRadius,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
+  overflow: 'hidden',
+  position: 'relative',
+  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+  transition: 'transform 0.3s ease-in-out',
+  '&:hover': {
+    transform: 'scale(1.02)',
+  },
+  '& img': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center -40px',
+    transition: 'transform 0.3s ease-in-out',
+  }
 }));
 
 const ContentContainer = styled(Box)(({ theme }) => ({
@@ -74,11 +84,13 @@ const Home = () => {
         </ContentContainer>
 
         {/* Right Column - Image */}
-        <ImagePlaceholder>
-          <Typography variant="body1" color="text.secondary">
-            Image Placeholder
-          </Typography>
-        </ImagePlaceholder>
+        <ImageContainer>
+          <img 
+            src={me} 
+            alt="Profile" 
+            loading="lazy"
+          />
+        </ImageContainer>
       </MainLayout>
     </Container>
   );

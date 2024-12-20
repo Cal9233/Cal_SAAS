@@ -8,6 +8,7 @@ import Projects from './Pages/Projects';
 import Contact from "./Pages/Contact";
 import ContactForm from "./Pages/ContactForm";
 import AnimatedSection from './Components/AnimatedSection';
+import Footer from './Components/Footer';
 import theme from './theme';
 
 const MainLayout = () => {

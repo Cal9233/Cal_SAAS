@@ -7,11 +7,17 @@ import {
   Drawer,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
   Typography
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CodeIcon from '@mui/icons-material/Code';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import BuildIcon from '@mui/icons-material/Build';
+import WorkIcon from '@mui/icons-material/Work';
+import MailIcon from '@mui/icons-material/Mail';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -21,11 +27,11 @@ const Header = () => {
   const location = useLocation();
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Services', id: 'services' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'Home', id: 'home', icon: <HomeIcon /> },
+    { label: 'About', id: 'about', icon: <PersonIcon /> },
+    { label: 'Services', id: 'services', icon: <BuildIcon /> },
+    { label: 'Projects', id: 'projects', icon: <WorkIcon /> },
+    { label: 'Contact', id: 'contact', icon: <MailIcon /> }
   ];
 
   // Scroll handling
@@ -109,6 +115,15 @@ const Header = () => {
               }
             }}
           >
+            <ListItemIcon 
+              sx={{ 
+                color: 'white',
+                opacity: activeSection === item.id ? 1 : 0.7,
+                minWidth: 40  // Make icons closer to text
+              }}
+            >
+              {item.icon}
+            </ListItemIcon>
             <ListItemText 
               primary={item.label}
               primaryTypographyProps={{
@@ -126,6 +141,10 @@ const Header = () => {
     </Box>
   );
 
+  // font change
+  // generate AI picture
+  // add extra color layer (icon blue but lighter)
+  
   return (
     <AppBar 
       position="fixed" 
@@ -184,7 +203,7 @@ const Header = () => {
             }
           }}
           ModalProps={{
-            keepMounted: true // Better mobile performance
+            keepMounted: true
           }}
         >
           {drawer}

@@ -7,7 +7,7 @@ import {
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import ProjectItem from '../Components/ProjectItem';
-import projectsData from "../Utilities/projectsData.json";  // Import the array directly
+import projectsData from "../Utilities/projectsData.json";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   minHeight: '100vh',

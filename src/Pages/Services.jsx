@@ -6,6 +6,15 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TechIcon from '../Components/TechIcon';
+import { 
+  FaReact, 
+  FaWordpress, 
+  FaSass, 
+  FaGitAlt,
+  FaJs,
+  FaAngular 
+} from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiGatsby } from "react-icons/si";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   minHeight: '100vh',
@@ -33,44 +42,44 @@ const TechGrid = styled(Box)(({ theme }) => ({
 
 const technologies = [
   {
-    name: 'React js/native',
-    icon: '/path-to-react-icon.svg',
-    color: '#61DAFB'
+    name: 'React',
+    icon: <FaReact />,
+    color: '#61DAFB'  // React blue
   },
   {
-    name: 'Angular',
-    icon: '/path-to-angular-icon.svg',
-    color: '#DD0031'
+    name: 'Wordpress',
+    icon: <FaWordpress />,
+    color: '#21759B'
   },
   {
     name: 'Gatsby',
-    icon: '/path-to-gatsby-icon.svg',
-    color: '#663399'
+    icon: <SiGatsby />,
+    color: '#663399'  // Gatsby purple
   },
   {
     name: 'SCSS',
-    icon: '/path-to-scss-icon.svg',
-    color: '#CC6699'
+    icon: <FaSass />,
+    color: '#CC6699'  // SASS pink
   },
   {
     name: 'Javascript',
-    icon: '/path-to-js-icon.svg',
-    color: '#F7DF1E'
+    icon: <FaJs />,
+    color: '#F7DF1E'  // JavaScript yellow
   },
   {
     name: 'Typescript',
-    icon: '/path-to-ts-icon.svg',
-    color: '#3178C6'
+    icon: <SiTypescript />,
+    color: '#3178C6'  // TypeScript blue
   },
   {
     name: 'Git',
-    icon: '/path-to-git-icon.svg',
-    color: '#F05032'
+    icon: <FaGitAlt />,
+    color: '#F05032'  // Git orange
   },
   {
     name: 'Next.js',
-    icon: '/path-to-nextjs-icon.svg',
-    color: '#000000'
+    icon: <SiNextdotjs />,
+    color: '#FFFFFF'  // White for dark theme
   }
 ];
 
