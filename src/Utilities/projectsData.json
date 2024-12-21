@@ -1,23 +1,26 @@
 [
     {
       "id": 1,
-      "title": "E-commerce Platform",
-      "summary": "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
-      "image": "/path-to-ecommerce-image.jpg",
+      "title": "Property_Calc",
+      "summary": "Property_Calc is a React web app that helps users find real estate and calculate mortgage payments. It uses Zillow's API for property data and Google Maps for location visualization. Users can search properties and customize mortgage calculations with different parameters like taxes and down payments.",
+      "image": "../Assets/FaHouse.png",
+      "link": "https://propertycalculator.netlify.app/",
       "direction": "left"
     },
     {
       "id": 2,
-      "title": "Task Management App",
-      "summary": "A collaborative task management tool with real-time updates, built using React and Firebase. Includes features like task assignment, due dates, and progress tracking.",
-      "image": "/path-to-task-app-image.jpg",
+      "title": "GenThrust",
+      "summary": "GenThrust is a WordPress-based aviation website that manages airplane parts data through a secure, role-based login system. Built with Elementor, it uses plugins like MemberPress and ACF to provide authorized users access to a specialized parts database.",
+      "image": "../Assets/GenThrust.png",
+      "link": "https://genthrust.org/",
       "direction": "right"
     },
     {
       "id": 3,
-      "title": "Portfolio Website",
-      "summary": "A responsive portfolio website showcasing my work and skills. Built with React and styled with Material-UI, featuring smooth animations and modern design.",
-      "image": "/path-to-portfolio-image.jpg",
+      "title": "Xiobook",
+      "summary": "Xiobook is a WordPress-based accounting platform where freelancers can offer their services. Built with Elementor and enhanced with WooCommerce, it facilitates secure transactions and client communication while maintaining strong SEO through Rank Math.",
+      "image": "../Assets/xiobook.png",
+      "link": "https://xiobook.com/",
       "direction": "left"
     }
   ]

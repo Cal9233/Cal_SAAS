@@ -1,14 +1,14 @@
 {
   "group1": {
     "title": "Website Development",
-    "summary": "I specialize in creating modern, responsive websites that deliver exceptional user experiences. From personal portfolios to complex e-commerce platforms, I build scalable solutions that help your business thrive in the digital landscape. Using cutting-edge technologies, I ensure your website stands out while maintaining optimal performance."
+    "summary": "Full-stack developer specializing in React and Node.js, focused on building scalable web applications with modern cloud infrastructure. Experienced in microservices, CI/CD, and performance optimization through efficient database design and caching strategies.."
   },
   "group2": {
     "title": "AI Integration",
-    "summary": "I bring the power of artificial intelligence to your digital solutions. Whether it's implementing intelligent chatbots, AI-powered search capabilities, or custom machine learning models, I integrate advanced AI features that enhance user engagement and automate key business processes. This gives your platform a competitive edge in today's tech-driven market."
+    "summary": "ML Engineer specializing in NLP and deep learning, with experience deploying production-ready AI solutions using TensorFlow and PyTorch. Skilled in developing custom language models, recommendation systems, and automated ML pipelines with emphasis on scalability and performance."
   },
   "group3": {
     "title": "Software Solutions",
-    "summary": "Beyond web development, I create custom software solutions tailored to your specific needs. From desktop applications to mobile apps, I develop reliable, efficient software that streamlines your operations. Using robust development practices and the latest technologies, I ensure your software is both powerful and user-friendly."
+    "summary": "Software engineer specializing in cross-platform development using React Native and Electron. Experienced in building enterprise-level applications with clean architecture, robust testing, and seamless integration with existing systems and APIs."
   }
 }

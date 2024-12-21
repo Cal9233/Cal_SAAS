@@ -20,7 +20,7 @@ const MainLayout = () => {
         className="App"
         sx={{ bgcolor: '#28282B' }}
       >
-        <AnimatedSection id="home" direction="up">
+        <AnimatedSection id="home" direction="down">
           <Home />
         </AnimatedSection>
         
@@ -36,10 +36,11 @@ const MainLayout = () => {
           <Projects />
         </AnimatedSection>
         
-        <AnimatedSection id="contact" direction="up" delay={0.2}>
+        <AnimatedSection id="contact" direction="left" delay={0.2}>
           <Contact />
         </AnimatedSection>
       </Box>
+      <Footer />
     </>
   );
 };
@@ -77,6 +78,7 @@ function App() {
               <>
                 <Header />
                 <ContactForm />
+                <Footer />
               </>
             } 
           />

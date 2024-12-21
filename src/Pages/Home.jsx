@@ -8,15 +8,14 @@ import {
 import { styled } from '@mui/material/styles';
 import me from '../Assets/me.jpg';
 
-// Styled components
 const StyledButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(1),
   borderRadius: '25px',
   padding: theme.spacing(1, 4),
-  border: `1px solid ${theme.palette.primary.main}`,
+  border: `1px solid ${"#0092ff"}`,
   '&:hover': {
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
+    color: "#0092ff",
   }
 }));
 

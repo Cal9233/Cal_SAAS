@@ -12,9 +12,10 @@ import {
   FaSass, 
   FaGitAlt,
   FaJs,
-  FaAngular 
+  FaNodeJs,
+  FaPython
 } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiGatsby } from "react-icons/si";
+import { SiTypescript } from "react-icons/si";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   minHeight: '100vh',
@@ -44,7 +45,7 @@ const technologies = [
   {
     name: 'React',
     icon: <FaReact />,
-    color: '#61DAFB'  // React blue
+    color: '#61DAFB'
   },
   {
     name: 'Wordpress',
@@ -52,33 +53,33 @@ const technologies = [
     color: '#21759B'
   },
   {
-    name: 'Gatsby',
-    icon: <SiGatsby />,
-    color: '#663399'  // Gatsby purple
+    name: 'Node JS',
+    icon: <FaNodeJs />,
+    color: '#6CC24A'
   },
   {
     name: 'SCSS',
     icon: <FaSass />,
-    color: '#CC6699'  // SASS pink
+    color: '#CC6699'
   },
   {
     name: 'Javascript',
     icon: <FaJs />,
-    color: '#F7DF1E'  // JavaScript yellow
+    color: '#F7DF1E'
   },
   {
     name: 'Typescript',
     icon: <SiTypescript />,
-    color: '#3178C6'  // TypeScript blue
+    color: '#3178C6'
   },
   {
     name: 'Git',
     icon: <FaGitAlt />,
-    color: '#F05032'  // Git orange
+    color: '#F05032'
   },
   {
-    name: 'Next.js',
-    icon: <SiNextdotjs />,
+    name: 'Python',
+    icon: <FaPython />,
     color: '#FFFFFF'  // White for dark theme
   }
 ];
@@ -99,7 +100,7 @@ const Services = () => {
           color="text.secondary"
           sx={{ maxWidth: '800px', mx: 'auto' }}
         >
-          Frontend technologies I prefer using to create modern, scalable, and maintainable applications
+          Languages and technologies I prefer using to create modern, scalable, and maintainable applications and software
         </Typography>
       </TitleSection>
 

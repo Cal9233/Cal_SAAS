@@ -34,7 +34,6 @@ const Header = () => {
     { label: 'Contact', id: 'contact', icon: <MailIcon /> }
   ];
 
-  // Scroll handling
   useEffect(() => {
     let timeoutId;
     
@@ -177,7 +176,7 @@ const Header = () => {
               letterSpacing: '0.02em'
             }}
           >
-            DevName
+            Cal-Dev
           </Typography>
         </Box>
 

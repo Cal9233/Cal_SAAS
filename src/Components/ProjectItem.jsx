@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Card, CardMedia } from '@mui/material';
+import { Box, Typography, Card, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
@@ -35,12 +35,18 @@ const ImageBox = styled(Box)(({ theme }) => ({
   '& img': {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
+    // objectFit: 'cover',
     aspectRatio: '16/9',
   },
 }));
 
-const ProjectItem = ({ title, summary, image, direction }) => {
+const ButtonGroup = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(3),
+  display: 'flex',
+  gap: theme.spacing(2),
+}));
+
+const ProjectItem = ({ title, summary, image, liveLink, codeLink, direction }) => {
   const variants = {
     hidden: {
       opacity: 0,
@@ -51,7 +57,7 @@ const ProjectItem = ({ title, summary, image, direction }) => {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -60,28 +66,41 @@ const ProjectItem = ({ title, summary, image, direction }) => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: '-100px' }}
       variants={variants}
     >
       <ProjectCard>
         <ContentBox>
-          <Typography 
-            variant="h3" 
-            component="h2" 
+          <Typography
+            variant="h3"
+            component="h2"
             gutterBottom
             sx={{ fontWeight: 'bold' }}
           >
             {title}
           </Typography>
-          <Typography 
-            variant="body1" 
+          <Typography
+            variant="body1"
             color="text.secondary"
             sx={{ fontSize: '1.1rem', lineHeight: 1.8 }}
           >
             {summary}
           </Typography>
+          <ButtonGroup>
+            <Button
+              variant="contained"
+              sx={{
+                "backgroundColor": "#0092ff"
+              }}
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LIVE SITE
+            </Button>
+          </ButtonGroup>
         </ContentBox>
-        
+
         <ImageBox>
           <img src={image} alt={title} />
         </ImageBox>

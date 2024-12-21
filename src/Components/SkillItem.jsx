@@ -45,9 +45,9 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 
 // Icon mapping
 const iconMap = {
-  'Continuous support': BuildTwoTone,
-  'Back-end development': CodeTwoTone,
-  'Frontend design/dev': ScreenshotMonitorTwoTone,
+  'Software Solutions': BuildTwoTone,
+  'AI Integration': CodeTwoTone,
+  'Website Development': ScreenshotMonitorTwoTone,
 };
 
 const SkillItem = ({ icon, title, summary }) => {
