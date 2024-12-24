@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import me from '../Assets/me.jpg';
+import resume from '../Assets/Resume.png'
 
 const StyledButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(1),
@@ -36,6 +37,21 @@ const ImageContainer = styled(Box)(({ theme }) => ({
     objectFit: 'cover',
     objectPosition: 'center -40px',
     transition: 'transform 0.3s ease-in-out',
+    position: 'relative',  // Added to create stacking context
+    zIndex: 1  // Place image above the grey background
+  },
+  '& .quote-box': {
+    position: 'absolute',
+    bottom: theme.spacing(2),
+    left: theme.spacing(2),
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
+    padding: theme.spacing(2),
+    borderRadius: theme.shape.borderRadius,
+    maxWidth: '300px',
+    boxShadow: theme.shadows[4],
+    zIndex: 2,  // Keep quote box on top
+    border: `2px solid ${theme.palette.secondary.main}` // Fixed border syntax
   }
 }));
 
@@ -73,10 +89,14 @@ const Home = () => {
           </Typography>
           
           <Box>
-            <StyledButton variant="outlined" color="primary">
+          <StyledButton 
+            variant="outlined" 
+            color="primary" 
+            onClick={() => window.open(resume, '_blank', 'noopener,noreferrer')}
+          >
               Resume
             </StyledButton>
-            <StyledButton variant="outlined" color="primary">
+            <StyledButton variant="outlined" color="primary" onClick={() => window.open('https://github.com/Cal9233', '_blank')}>
               Projects
             </StyledButton>
           </Box>
@@ -89,6 +109,11 @@ const Home = () => {
             alt="Profile" 
             loading="lazy"
           />
+          <Box className="quote-box">
+            <Typography variant="body1">
+              "Every problem holds the seed of its solution; it just takes patience, curiosity, and determination to uncover it."
+            </Typography>
+          </Box>
         </ImageContainer>
       </MainLayout>
     </Container>

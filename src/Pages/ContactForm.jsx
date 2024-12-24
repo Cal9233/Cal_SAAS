@@ -5,24 +5,31 @@ import {
   Box, 
   TextField, 
   Button, 
-  Grid,
   Paper,
+  Stack,
   Snackbar,
-  Alert
+  Alert,
+  styled
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { motion } from 'framer-motion';
 import { Email, Phone, LocationOn } from '@mui/icons-material';
+import emailjs from "emailjs-com";
 
 const StyledContainer = styled(Container)(({ theme }) => ({
   padding: theme.spacing(8, 2),
 }));
 
-const InfoCard = styled(Box)(({ theme }) => ({
+const FlexBox = styled(Box)(({ theme }) => ({
   display: 'flex',
-  alignItems: 'center',
-  gap: theme.spacing(2),
-  marginBottom: theme.spacing(2),
+  flexDirection: 'column',
+  gap: theme.spacing(6),
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+  },
+}));
+
+const Column = styled(Box)(({ theme }) => ({
+  flex: 1,
+  minWidth: '300px',
 }));
 
 const ContactForm = () => {
@@ -47,28 +54,32 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
     try {
-      // Here you would integrate with your email service (e.g., EmailJS, SendGrid, or your backend)
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      console.log("Form Data:", formData);
+      const result = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
         },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+  
+      console.log("EmailJS Result:", result);
+      if (result.text === 'OK') {
         setSnackbar({
           open: true,
           message: 'Message sent successfully!',
           severity: 'success'
         });
         setFormData({ name: '', email: '', phone: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
       }
     } catch (error) {
+      console.error("EmailJS Error:", error);
       setSnackbar({
         open: true,
         message: 'Failed to send message. Please try again.',
@@ -76,61 +87,102 @@ const ContactForm = () => {
       });
     }
   };
+  
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+  
+//   try {
+//     console.log({formData})
+//     const result = await emailjs.send(
+//       process.env.REACT_APP_EMAILJS_SERVICE_ID,
+//       process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+//       formData,
+//       process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+//     );
+//     console.log({result})
+//     if (result.text === 'OK') {
+//       setSnackbar({
+//         open: true,
+//         message: 'Message sent successfully!',
+//         severity: 'success'
+//       });
+//       setFormData({ name: '', email: '', phone: '', message: '' });
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//     setSnackbar({
+//       open: true,
+//       message: 'Failed to send message. Please try again.',
+//       severity: 'error'
+//     });
+//   }
+// };
+
+console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID);
+console.log(process.env.REACT_APP_EMAILJS_TEMPLATE_ID);
+console.log(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+
 
   return (
     <StyledContainer maxWidth="lg">
-      <Grid container spacing={6}>
-        <Grid item xs={12} md={6}>
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Typography variant="h3" component="h1" gutterBottom>
+      <FlexBox>
+        {/* Left Column */}
+        <Column>
+          <Stack spacing={2}>
+            <Typography variant="h3" component="h1">
               Let's Connect
             </Typography>
-            <Typography variant="body1" color="text.secondary" paragraph>
+            <Typography variant="body1" color="text.secondary">
               Fill out the form and I'll get back to you as soon as possible.
             </Typography>
 
-            <Paper elevation={0} sx={{ p: 4, mt: 4, bgcolor: 'grey.50' }}>
-              <Typography variant="h6" gutterBottom>
+            <Paper
+              elevation={2}
+              sx={{
+                p: 4,
+                mt: 4,
+                borderRadius: 4,
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                textAlign: 'center'
+              }}
+            >
+              <Typography variant="h5" gutterBottom sx={{textShadow: '1px 2px black'}}>
                 Contact Information
               </Typography>
-              
-              <InfoCard>
-                <Email color="primary" />
-                <Typography>your.email@example.com</Typography>
-              </InfoCard>
-              
-              <InfoCard>
-                <Phone color="primary" />
-                <Typography>+1 (555) 123-4567</Typography>
-              </InfoCard>
-              
-              <InfoCard>
-                <LocationOn color="primary" />
-                <Typography>City, Country</Typography>
-              </InfoCard>
-            </Paper>
-          </motion.div>
-        </Grid>
 
-        <Grid item xs={12} md={6}>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Paper elevation={3} sx={{ p: 4 }}>
-              <form onSubmit={handleSubmit}>
+              <Stack spacing={2} mt={2} alignItems="center">
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <Email color="primary" sx={{ fontSize: 28 }} />
+                  <Typography variant="body1" sx={{textShadow: '1px 2px black'}}>calvin.m9233@gmail.com</Typography>
+                </Stack>
+
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <Phone color="primary" sx={{ fontSize: 28 }} />
+                  <Typography variant="body1" sx={{textShadow: '1px 2px black'}}>+1 (305) 793-5024</Typography>
+                </Stack>
+
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <LocationOn color="primary" sx={{ fontSize: 28 }} />
+                  <Typography variant="body1" sx={{textShadow: '1px 2px black'}}>Redwood City, California</Typography>
+                </Stack>
+              </Stack>
+            </Paper>
+
+          </Stack>
+        </Column>
+
+        {/* Right Column */}
+        <Column>
+          <Paper elevation={3} sx={{ p: 4, mt: 2 }}>
+            <form onSubmit={handleSubmit}>
+              <Stack spacing={2}>
                 <TextField
                   fullWidth
                   label="Name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  margin="normal"
                   required
                 />
                 <TextField
@@ -140,7 +192,6 @@ const ContactForm = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  margin="normal"
                   required
                 />
                 <TextField
@@ -149,7 +200,6 @@ const ContactForm = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  margin="normal"
                 />
                 <TextField
                   fullWidth
@@ -159,23 +209,28 @@ const ContactForm = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  margin="normal"
                   required
                 />
-                <Button
+                 <Button
                   type="submit"
                   variant="contained"
                   size="large"
                   fullWidth
-                  sx={{ mt: 3 }}
+                  sx={{ 
+                    mt: 2,
+                    bgcolor: "#0092ff",
+                    '&:hover': {
+                      bgcolor: '#1e293b'
+                    }
+                  }}
                 >
                   Send Message
                 </Button>
-              </form>
-            </Paper>
-          </motion.div>
-        </Grid>
-      </Grid>
+              </Stack>
+            </form>
+          </Paper>
+        </Column>
+      </FlexBox>
 
       <Snackbar
         open={snackbar.open}

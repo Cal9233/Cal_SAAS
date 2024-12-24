@@ -45,6 +45,9 @@ const theme = createTheme({
     },
     primary: {
       main: '#ffffff'
+    },
+    secondary: {
+      main: "#0092ff"
     }
   },
   components: {
