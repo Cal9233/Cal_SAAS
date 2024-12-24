@@ -62,6 +62,7 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeoutId);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const scrollToSection = (id) => {
